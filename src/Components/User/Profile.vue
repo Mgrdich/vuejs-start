@@ -42,9 +42,9 @@
       updateName() {
         this.$emit('UpdateName');
       },
-      addFriend(){
-          this.friend = '';
-          bus.$emit('addFriend',this.friend);
+      addFriend() {
+        bus.$emit('addFriend', this.friend);
+        this.friend = '';
       }
     }
 
