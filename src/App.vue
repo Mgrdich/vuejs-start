@@ -1,12 +1,15 @@
 <template>
   <div>
     <app-header></app-header>
-    <comp-profile
-      :name="name"
-      :info="info"
-      v-on:UpdateName="updateName"
-    />
-
+    <div class="container">
+      <comp-profile
+        :name="name"
+        :info="info"
+        @UpdateName="updateName"
+        :updateMyName="updateName"
+      />
+      <comp-friends/>
+    </div>
     <app-footer></app-footer>
   </div>
 </template>
@@ -15,12 +18,14 @@
     import Header from "./Components/Header_Footer/Header";
     import Footer from "./Components/Header_Footer/Footer";
     import Profile from "./Components/User/Profile";
+    import Friends from "./Components/User/Friends";
     export default {
       name: "App",
       components: {
         'app-header':Header,
         'app-footer':Footer,
         'comp-profile':Profile,
+        'comp-friends':Friends
       },
       data() {
           return {
