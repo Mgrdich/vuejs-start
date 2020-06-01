@@ -24,8 +24,8 @@
 
 <script>
   import Friends from "../User/Friends";
-  import Profile from "../User/Friends";
-  import Habilities from "../User/Friends";
+  import Profile from "../User/Profile";
+  import Habilities from "../User/Habilities";
 
     export default {
         name: "Home",
@@ -42,6 +42,12 @@
               mother: "Sevan",
               father: "Hakop"
           }
+        }
+      },
+      methods:{
+        updateName() {
+          this.toggle = !this.toggle;
+          this.name = (this.toggle) ? 'Francis Bacon' : 'Francis 3askari';
         }
       }
     }

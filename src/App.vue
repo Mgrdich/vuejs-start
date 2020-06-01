@@ -3,14 +3,7 @@
     <app-header
       @componentRender="changeComponent"
     />
-    <div class="flex">
-      <div class="container">
-
-      </div>
-      <div class="container">
-        <comp-form/>
-      </div>
-    </div>
+    <component :is="compRender"></component>
     <app-footer></app-footer>
   </div>
 </template>
@@ -27,20 +20,20 @@
       'app-header': Header,
       'app-footer': Footer,
       'comp-form': MyForm,
-      'comp-homme': Home
+      'comp-home': Home
     },
     data() {
       return {
-        compRender: ''
+        compRender: 'comp-home'
       }
     },
     methods: {
       changeComponent(e) {
-        if (e === 'Home') {
+        if (e !== 'Home') {
           this.compRender = 'comp-form';
           return;
         }
-        this.compRender = ''
+        this.compRender = 'comp-home'
       }
     }
   }
