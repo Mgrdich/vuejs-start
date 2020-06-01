@@ -1,5 +1,5 @@
 <template>
-  <form action="" class="group_form" @submit="formSubmit">
+  <form action="" class="group_form" @submit.prevent="formSubmit">
     <label for="name" class="input-label">
       <span>Name</span>
       <input type="text" id="name" name="name" v-model.lazy="formData.name">
@@ -13,11 +13,23 @@
       <textarea v-model.lazy="formData.message" name="message" id="message" cols="30" rows="10">
       </textarea>
     </label>
+    <label for="countries" class="input-label">
+      <span>Countries</span>
+      <select
+        name="countries"
+        id="countries"
+        v-model="formData"
+      >
+        <option v-for="(country,index) in countries" :key="index">
+          {{country}}
+        </option>
+      </select>
+    </label>
     <label for="newsletter">
       <span>Newsletter</span>
       <input type="checkbox" name="newsletter" id="newsletter" value="newsletter" v-model.lazy="formData.newsletter">
     </label>
-    <button type="submit" class="btn">Submit</button>
+    <button type="submit" class="btn float">Submit</button>
   </form>
 </template>
 
@@ -26,13 +38,15 @@
         name: "MyForm",
         data() {
           return {
+            countries:['USA','India','UK','Russia'],
             formData:{
               name:'',
               lastName:'',
               message:'',
               newsletter:'',
               checkbox:false,
-              radio:''
+              radio:'',
+              country:''
             }
           }
         },
@@ -48,7 +62,7 @@
   .input-label {
     width: 100%;
     display: block;
-    input,textarea {
+    input,textarea,select {
       display: block;
       width: 100%;
     }
@@ -60,9 +74,11 @@
       }
     }
   }
-  .btn {
+
+  .float {
     float: right;
-    background-color:#2196F3;
-    color: #fff;
   }
+
+
+
 </style>

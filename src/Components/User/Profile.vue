@@ -12,13 +12,13 @@
         <li><span>{{key}}:</span> {{value}}</li>
       </ul>
     </div>
-    <button @click="updateName">Click me to via Emit</button>
-    <button @click="updateMyName">Click me to Change me</button>
+    <button class="btn" @click="updateName">Click me to via Emit</button>
+    <button class="btn" @click="updateMyName">Click me to Change me</button>
     <div>
       <label>
         <input type="text" v-model="friend">
       </label>
-      <button type="button" @click="addFriend">add friends</button>
+      <button class="btn" type="button" @click="addFriend">add friends</button>
     </div>
   </div>
 </template>

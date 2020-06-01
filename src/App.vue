@@ -95,4 +95,22 @@
   .flex {
     display: flex;
   }
+  .animate {
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+  }
+
+  .btn {
+    position: relative;
+    padding: 3px 15px;
+    margin: 0px 10px 10px 0px;
+    float: left;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #3498DB;
+    border-bottom: 5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+  }
 </style>
