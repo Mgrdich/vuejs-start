@@ -1,6 +1,8 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header
+      @componentRender="changeComponent"
+    />
     <div class="flex">
       <div class="container">
         <comp-profile
@@ -56,13 +58,21 @@
         info: {
           mother: "Sevan",
           father: "Hakop"
-        }
+        },
+        compRender:''
       }
     },
     methods: {
       updateName() {
         this.toggle = !this.toggle;
         this.name = (this.toggle) ? 'Francis Bacon' : 'Francis 3askari';
+      },
+      changeComponent(e) {
+        if(e==='Home') {
+          this.compRender = 'comp-form';
+          return;
+        }
+        this.compRender = ''
       }
     }
   }
