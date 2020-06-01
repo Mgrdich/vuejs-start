@@ -12,7 +12,7 @@
 <script>
   import {bus} from "../../main";
 
-  export default {
+  export default  {
     name: "Friends",
     data() {
       return {

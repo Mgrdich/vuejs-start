@@ -5,25 +5,7 @@
     />
     <div class="flex">
       <div class="container">
-        <comp-profile
-          :name="name"
-          :info="info"
-          @UpdateName="updateName"
-          :updateMyName="updateName"
-        />
-        <comp-friends/>
-        <comp-habilites>
-          <ul slot="main_hab">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JS</li>
-          </ul>
-          <ul slot="sec_hab">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JS</li>
-          </ul>
-        </comp-habilites>
+
       </div>
       <div class="container">
         <comp-form/>
@@ -36,39 +18,25 @@
 <script>
   import Header from "./Components/Header_Footer/Header";
   import Footer from "./Components/Header_Footer/Footer";
-  import Profile from "./Components/User/Profile";
-  import Friends from "./Components/User/Friends";
-  import Habilities from "./Components/User/Habilities";
   import MyForm from "./Components/myForms/MyForm";
+  import Home from "./Components/Home/Home";
 
   export default {
     name: "App",
     components: {
       'app-header': Header,
       'app-footer': Footer,
-      'comp-profile': Profile,
-      'comp-friends': Friends,
-      'comp-habilites': Habilities,
-      'comp-form': MyForm
+      'comp-form': MyForm,
+      'comp-homme': Home
     },
     data() {
       return {
-        name: 'Francis',
-        toggle: false,
-        info: {
-          mother: "Sevan",
-          father: "Hakop"
-        },
-        compRender:''
+        compRender: ''
       }
     },
     methods: {
-      updateName() {
-        this.toggle = !this.toggle;
-        this.name = (this.toggle) ? 'Francis Bacon' : 'Francis 3askari';
-      },
       changeComponent(e) {
-        if(e==='Home') {
+        if (e === 'Home') {
           this.compRender = 'comp-form';
           return;
         }
@@ -80,7 +48,8 @@
 
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,400&display=swap');
-  $main_color:#2196F3;
+
+  $main_color: #2196F3;
   body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -102,9 +71,11 @@
       margin-top: 20px;
     }
   }
+
   .flex {
     display: flex;
   }
+
   .animate {
     transition: all 0.1s;
     -webkit-transition: all 0.1s;
