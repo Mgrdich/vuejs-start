@@ -1,5 +1,5 @@
 <template>
-  <div class="user_friends">
+  <div class="user_profile">
     <h2>User Friends</h2>
     <ul>
       <li v-for="(value,index) in friends" :key="index">
@@ -26,14 +26,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss">
-  .user_friends {
-    border: 1px solid #2196F3;
-    padding: 10px 20px;
-
-    &:not(:first-child) {
-      margin-top: 20px;
-    }
-  }
-</style>

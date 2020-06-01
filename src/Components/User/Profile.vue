@@ -55,13 +55,4 @@
   span {
     font-weight: 600;
   }
-
-  .user_profile {
-    border: 1px solid #2196F3;
-    padding: 10px 20px;
-
-    &:not(:first-child) {
-      margin-top: 20px;
-    }
-  }
 </style>

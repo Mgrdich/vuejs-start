@@ -1,61 +1,98 @@
 <template>
   <div>
     <app-header></app-header>
-    <div class="container">
-      <comp-profile
-        :name="name"
-        :info="info"
-        @UpdateName="updateName"
-        :updateMyName="updateName"
-      />
-      <comp-friends/>
+    <div class="flex">
+      <div class="container">
+        <comp-profile
+          :name="name"
+          :info="info"
+          @UpdateName="updateName"
+          :updateMyName="updateName"
+        />
+        <comp-friends/>
+        <comp-habilites>
+          <ul slot="main_hab">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+          </ul>
+          <ul slot="sec_hab">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+          </ul>
+        </comp-habilites>
+      </div>
+      <div class="container">
+        <comp-form/>
+      </div>
     </div>
     <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-    import Header from "./Components/Header_Footer/Header";
-    import Footer from "./Components/Header_Footer/Footer";
-    import Profile from "./Components/User/Profile";
-    import Friends from "./Components/User/Friends";
-    export default {
-      name: "App",
-      components: {
-        'app-header':Header,
-        'app-footer':Footer,
-        'comp-profile':Profile,
-        'comp-friends':Friends
-      },
-      data() {
-          return {
-            name: 'Francis',
-            toggle:false,
-            info:{
-              mother:"Sevan",
-              father:"Hakop"
-            }
-          }
-        },
-      methods:{
-        updateName() {
-          this.toggle = !this.toggle;
-          this.name = (this.toggle) ? 'Francis Bacon' : 'Francis 3askari';
+  import Header from "./Components/Header_Footer/Header";
+  import Footer from "./Components/Header_Footer/Footer";
+  import Profile from "./Components/User/Profile";
+  import Friends from "./Components/User/Friends";
+  import Habilities from "./Components/User/Habilities";
+  import MyForm from "./Components/myForms/MyForm";
+
+  export default {
+    name: "App",
+    components: {
+      'app-header': Header,
+      'app-footer': Footer,
+      'comp-profile': Profile,
+      'comp-friends': Friends,
+      'comp-habilites': Habilities,
+      'comp-form': MyForm
+    },
+    data() {
+      return {
+        name: 'Francis',
+        toggle: false,
+        info: {
+          mother: "Sevan",
+          father: "Hakop"
         }
       }
+    },
+    methods: {
+      updateName() {
+        this.toggle = !this.toggle;
+        this.name = (this.toggle) ? 'Francis Bacon' : 'Francis 3askari';
+      }
     }
+  }
 </script>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,400&display=swap');
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin:0;
-      padding: 0;
+<style lang="scss">
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,400&display=swap');
+  $main_color:#2196F3;
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    min-height: 81vh;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 50%;
+  }
+
+  .user_profile {
+    border: 1px solid #2196F3;
+    padding: 10px 20px;
+
+    &:not(:first-child) {
+      margin-top: 20px;
     }
-    .container {
-      min-height: 81vh;
-      box-sizing: border-box;
-      padding: 20px;
-    }
+  }
+  .flex {
+    display: flex;
+  }
 </style>
