@@ -26,7 +26,7 @@
       'comp-form': MyForm,
       'comp-home': Home,
       'comp-directives':Development,
-      'com-transition':Transitions
+      'comp-transition':Transitions
     },
     data() {
       return {
@@ -101,5 +101,12 @@
     background-color: #3498DB;
     border-bottom: 5px solid #2980B9;
     text-shadow: 0px -2px #2980B9;
+  }
+  .bg-success {
+    background-color: darkgreen;
+    color: #fff;
+    display: block;
+    width: 100%;
+    padding: 20px;
   }
 </style>
