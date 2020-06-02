@@ -4,6 +4,7 @@
     <ul>
       <li @click="componentRender('Home')">Home</li>
       <li @click="componentRender('Contact')">Contact us</li>
+      <li @click="componentRender('Development')">Development</li>
     </ul>
   </header>
 </template>

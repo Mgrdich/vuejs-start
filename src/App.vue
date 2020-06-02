@@ -3,7 +3,9 @@
     <app-header
       @componentRender="changeComponent"
     />
-    <component :is="compRender"></component>
+    <keep-alive>
+      <component :is="compRender"></component>
+    </keep-alive>
     <app-footer></app-footer>
   </div>
 </template>
@@ -13,6 +15,7 @@
   import Footer from "./Components/Header_Footer/Footer";
   import MyForm from "./Components/myForms/MyForm";
   import Home from "./Components/Home/Home";
+  import Development from "./Components/Development/Development";
 
   export default {
     name: "App",
@@ -20,7 +23,8 @@
       'app-header': Header,
       'app-footer': Footer,
       'comp-form': MyForm,
-      'comp-home': Home
+      'comp-home': Home,
+      'comp-development':Development
     },
     data() {
       return {
@@ -29,11 +33,16 @@
     },
     methods: {
       changeComponent(e) {
-        if (e !== 'Home') {
-          this.compRender = 'comp-form';
-          return;
+        switch (e) {
+          case 'Contact':
+            this.compRender = 'comp-form';
+            break;
+          case 'Development':
+            this.compRender = 'comp-development';
+            break;
+          default:
+            this.compRender = 'comp-home';
         }
-        this.compRender = 'comp-home'
       }
     }
   }
@@ -54,6 +63,7 @@
     box-sizing: border-box;
     padding: 20px;
     width: 50%;
+    margin: 0 auto;
   }
 
   .user_profile {

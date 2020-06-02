@@ -19,7 +19,7 @@
         <select
           name="countries"
           id="countries"
-          v-model="formData"
+          v-model="formData.country"
         >
           <option v-for="(country,index) in countries" :key="index">
             {{country}}
@@ -56,6 +56,12 @@
       formSubmit(event) {
         console.log(event);
       }
+    },
+    activated() {
+      //during stay alive
+    },
+    deactivated() {
+      //during stay alive
     }
   }
 </script>
@@ -82,6 +88,4 @@
   .float {
     float: right;
   }
-
-
 </style>
