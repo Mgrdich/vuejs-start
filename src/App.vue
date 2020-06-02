@@ -16,6 +16,7 @@
   import MyForm from "./Components/myForms/MyForm";
   import Home from "./Components/Home/Home";
   import Development from "./Components/Development/Development";
+  import Transitions from "./Components/Transitions/Transitions";
 
   export default {
     name: "App",
@@ -24,7 +25,8 @@
       'app-footer': Footer,
       'comp-form': MyForm,
       'comp-home': Home,
-      'comp-development':Development
+      'comp-directives':Development,
+      'com-transition':Transitions
     },
     data() {
       return {
@@ -34,11 +36,14 @@
     methods: {
       changeComponent(e) {
         switch (e) {
-          case 'Contact':
+          case 'Forms':
             this.compRender = 'comp-form';
             break;
-          case 'Development':
-            this.compRender = 'comp-development';
+          case 'Directives':
+            this.compRender = 'comp-directives';
+            break;
+          case 'Transitions':
+            this.compRender = 'comp-transition';
             break;
           default:
             this.compRender = 'comp-home';

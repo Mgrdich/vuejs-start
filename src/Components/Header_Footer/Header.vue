@@ -3,8 +3,9 @@
     <span>Hello</span>
     <ul>
       <li @click="componentRender('Home')">Home</li>
-      <li @click="componentRender('Contact')">Contact us</li>
-      <li @click="componentRender('Development')">Development</li>
+      <li @click="componentRender('Forms')">Forms</li>
+      <li @click="componentRender('Directives')">Directives</li>
+      <li @click="componentRender('Transitions')">Transitions</li>
     </ul>
   </header>
 </template>
