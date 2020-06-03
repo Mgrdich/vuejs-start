@@ -93,7 +93,6 @@
     position: relative;
     padding: 3px 15px;
     margin: 0px 10px 10px 0px;
-    float: left;
     border-radius: 10px;
     font-size: 15px;
     color: #FFF;
@@ -108,5 +107,8 @@
     display: block;
     width: 100%;
     padding: 20px;
+  }
+  .m-t-30 {
+    margin-top: 30px;
   }
 </style>
