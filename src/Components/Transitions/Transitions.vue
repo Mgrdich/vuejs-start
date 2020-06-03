@@ -18,9 +18,14 @@
     <button class="btn" @click="addOne()">Toggle Group</button>
 
     <ul>
-      <li v-for="(item,$index) in list" :key="item" @click="removeOne($index)">
+      <transition-group name="appear">
+      <li
+        v-for="(item,$index) in list"
+        :key="item"
+        @click="removeOne($index)">
         {{item}}
       </li>
+      </transition-group>
     </ul>
 
   </div>
@@ -42,8 +47,8 @@
             console.log(arg);
           },
           addOne(){
-            if(!this.list.includes(this.name)){
-                 this.list.push(this.name);
+            if(this.name && !this.list.includes(this.name)){
+                 this.list.unshift(this.name);
                  this.name = '';
             }
           },
@@ -71,6 +76,9 @@
       transition: all 1s ease;
       opacity: 0;
     }
+  }
+  .appear-move {
+    transition:transform 1s;
   }
   ul {
     padding: 0;
