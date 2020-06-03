@@ -6,6 +6,7 @@
       <li @click="componentRender('Forms')">Forms</li>
       <li @click="componentRender('Directives')">Directives</li>
       <li @click="componentRender('Transitions')">Transitions</li>
+      <li @click="componentRender('Technologies')">Technologies</li>
     </ul>
   </header>
 </template>

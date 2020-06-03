@@ -17,6 +17,7 @@
   import Home from "./Components/Home/Home";
   import Development from "./Components/Development/Development";
   import Transitions from "./Components/Transitions/Transitions";
+  import Technologies from "./Components/Tech/Technologies";
 
   export default {
     name: "App",
@@ -26,7 +27,8 @@
       'comp-form': MyForm,
       'comp-home': Home,
       'comp-directives':Development,
-      'comp-transition':Transitions
+      'comp-transition':Transitions,
+      'comp-technologies':Technologies
     },
     data() {
       return {
@@ -44,6 +46,9 @@
             break;
           case 'Transitions':
             this.compRender = 'comp-transition';
+            break;
+          case 'Technologies':
+            this.compRender = 'comp-technologies';
             break;
           default:
             this.compRender = 'comp-home';
