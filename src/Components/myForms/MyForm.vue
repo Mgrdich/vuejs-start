@@ -36,6 +36,8 @@
 </template>
 
 <script>
+  import {FormMixin} from "../../Mixins/mixins";
+
   export default {
     name: "MyForm",
     data() {
@@ -46,15 +48,20 @@
           lastName: '',
           message: '',
           newsletter: '',
-          checkbox: false,
           radio: '',
           country: ''
         }
       }
     },
+    mixins:[FormMixin],
     methods: {
-      formSubmit(event) {
-        console.log(event);
+      formSubmit() {
+        let data = this.serializeForm(this.formData, {newsletter: true});
+        this.$http
+          .post('http://localhost:3000/users',data)
+          .then(()=> {
+            this.resetForm(this.formData);
+        })
       }
     },
     activated() {
