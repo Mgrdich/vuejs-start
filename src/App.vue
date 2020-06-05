@@ -18,6 +18,7 @@
   import Development from "./Components/Development/Development";
   import Transitions from "./Components/Transitions/Transitions";
   import Technologies from "./Components/Tech/Technologies";
+  import Requests from "./Components/Requests/Requests";
 
   export default {
     name: "App",
@@ -28,7 +29,8 @@
       'comp-home': Home,
       'comp-directives':Development,
       'comp-transition':Transitions,
-      'comp-technologies':Technologies
+      'comp-technologies':Technologies,
+      'comp-requests':Requests
     },
     data() {
       return {
@@ -50,6 +52,9 @@
           case 'Technologies':
             this.compRender = 'comp-technologies';
             break;
+          case 'Requests':
+            this.compRender = 'comp-requests';
+            break
           default:
             this.compRender = 'comp-home';
         }

@@ -7,13 +7,12 @@
       <li @click="componentRender('Directives')">Directives</li>
       <li @click="componentRender('Transitions')">Transitions</li>
       <li @click="componentRender('Technologies')">Technologies</li>
+      <li @click="componentRender('Requests')">Requests</li>
     </ul>
   </header>
 </template>
 
 <script>
-  import {bus} from "../../main";
-
   export default {
     name: "Header",
     methods: {
