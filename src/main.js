@@ -26,6 +26,10 @@ Vue.directive('awesome', {
 });
 
 Vue.use(VueResource);
+Vue.http.options.root = 'http://localhost:3000/';
+Vue.http.interceptors.push((req,next)=>{
+  console.log(req);
+});
 
 new Vue({
   el: "#app",

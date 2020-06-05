@@ -8,6 +8,14 @@
         </li>
       </ul>
     </div>
+    <div class="user_profile">
+      <h2>User Cars</h2>
+      <ul>
+        <li v-for="(value,index) in cars" :key="index">
+          {{value.brand}}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -17,21 +25,30 @@
     data() {
       return {
         names:[],
-        loading:false
+        loading:0,
+        cars:[],
+        resource:''
       }
     },
     methods:{
       fetchData() {
         this.loading = true;
-        this.$http.get('http://localhost:3000/users')
+        this.$http.get('users')
           .then((response) => {
             this.names = response.body;
           }).finally(() => {
-          this.loading = false;
+          this.loading += 1;
+        });
+
+        this.resource.get().then((res)=>{
+          this.cars = res.body;
+        }).finally(()=>{
+          this.loading += 1;
         })
       }
     },
     created() {
+        this.resource = this.$resource('cars/{id}');
         this.fetchData();
     }
   }

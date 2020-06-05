@@ -58,7 +58,7 @@
       formSubmit() {
         let data = this.serializeForm(this.formData, {newsletter: true});
         this.$http
-          .post('http://localhost:3000/users',data)
+          .post('users',data)
           .then(()=> {
             this.resetForm(this.formData);
         })
