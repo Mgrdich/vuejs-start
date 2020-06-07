@@ -12,3 +12,5 @@ yarn-error.log
 *.sln
 *.xml
 
+.env.development.local
+.env
