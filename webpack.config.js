@@ -108,9 +108,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  console.log(process.env);
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-    'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
-  });
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"development"',
+        api:JSON.stringify(process.env.URL),
+      }
+    })]);
+
 }
