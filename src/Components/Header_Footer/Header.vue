@@ -2,12 +2,22 @@
   <header class="flex">
     <span>Hello</span>
     <ul>
-      <li @click="componentRender('Home')">Home</li>
-      <li @click="componentRender('Forms')">Forms</li>
-      <li @click="componentRender('Directives')">Directives</li>
-      <li @click="componentRender('Transitions')">Transitions</li>
-      <li @click="componentRender('Technologies')">Technologies</li>
-      <li @click="componentRender('Requests')">Requests</li>
+      <li><router-link to="/">Home</router-link></li>
+      <li>
+        <router-link to="/forms">Forms</router-link>
+      </li>
+      <li>
+        <router-link to="/development">Directives</router-link
+      </li>
+      <li>
+        <router-link to="/transition">Transitions</router-link>
+      </li>
+      <li>
+        <router-link to="/technologies">Technologies</router-link>
+      </li>
+      <li>
+        <router-link to="/requests">Requests</router-link>
+      </li>
     </ul>
   </header>
 </template>
@@ -16,9 +26,9 @@
   export default {
     name: "Header",
     methods: {
-      componentRender(element) {
+      /*componentRender(element) {
         this.$emit('componentRender', element);
-      }
+      }*/
     }
   }
 </script>
@@ -47,11 +57,15 @@
         padding: 0 10px;
         display: inline-block;
         line-height: 1;
-
-        &:hover {
-          cursor: pointer;
-          color: #607d8b;
+        a {
+          color:#fff;
+          text-decoration: none;
+          &:hover {
+            cursor: pointer;
+            color: #607d8b;
+          }
         }
+
       }
     }
   }

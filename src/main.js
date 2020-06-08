@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
+import {routes} from "./routes";
 
 export const bus = new Vue();
 
@@ -26,12 +28,20 @@ Vue.directive('awesome', {
 });
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
+
 Vue.http.options.root = process.env.api;
 Vue.http.interceptors.push((req,next)=>{
   console.log(req);
 });
 
+const router = new VueRouter({
+  routes,
+  mode:'history'
+})
+
 new Vue({
   el: "#app",
+  router,
   render: h => h(App)
 });
